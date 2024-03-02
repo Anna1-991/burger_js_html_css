@@ -140,7 +140,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateX(-300px);
-    transition: 1.75s;
+    transition: 1.5s;
 }
 
 .main_small_info{
@@ -172,9 +172,8 @@ body {
     left: calc(100% - 991px);
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-400px);
-    transition: 2.5s;
-    transition-delay: 1.5s;
+    transform: translateX(400px);
+    transition: 1.5s;
 }
 
 /*section2*/
