@@ -21,7 +21,6 @@ let phone = document.getElementById("phone");
 
 document.getElementById("order_action").onclick = function () {
     let hasError = false;
-
     [burger, name, phone].forEach((item) => {
         if (!item.value) {
             item.parentElement.style.background =
@@ -31,7 +30,6 @@ document.getElementById("order_action").onclick = function () {
             item.parentElement.style.background = "";
         }
     });
-
     if (!hasError) {
         [burger, name, phone].forEach((item) => {
             item.value = "";
@@ -63,11 +61,11 @@ document.getElementById("change_currency").onclick = function (e) {
     let coefficient = 1;
 
     if (currentCurrency === "$") {
-        newCurrency = "₽";
-        coefficient = 80;
-    } else if (currentCurrency === "₽") {
+        newCurrency = "֏";
+        coefficient = 400;
+    } else if (currentCurrency === "֏") {
         newCurrency = "BYN";
-        coefficient = 3;
+        coefficient = 2.5;
     } else if (currentCurrency === "BYN") {
         newCurrency = "€";
         coefficient = 0.9;
@@ -87,7 +85,6 @@ document.getElementById("change_currency").onclick = function (e) {
 };
 
 // anim
-
 const mainInfo = document.querySelector(".main_info");
 const mainImage = document.querySelector(".main_image");
 mainInfo.style = `opacity: 1;
@@ -96,3 +93,21 @@ mainInfo.style = `opacity: 1;
 mainImage.style = `opacity: 1;
     visibility: visible;
     transform: translateX(0);`;
+
+//create order
+const productButtons = document.querySelectorAll('.product_button');
+
+productButtons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        const productItem = event.target.closest('.products_item_image');
+        console.log(event.target);
+        if (productItem) {
+            const title = productItem.querySelector('.products_item_title').innerText;
+            const price = productItem.querySelector('.products_item_price').innerText;
+            const weight = productItem.querySelector('.products_item_weight').innerText;
+
+            const productInfo = title + ' - ' + price + ' - ' + weight;
+            burger.value = productInfo;
+        }
+    });
+});
